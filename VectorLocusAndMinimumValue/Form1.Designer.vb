@@ -26,7 +26,7 @@ Partial Class VectorLocusAndMinimumValue
         Me.numVector = New System.Windows.Forms.NumericUpDown()
         Me.lblNumberOfVector = New System.Windows.Forms.Label()
         Me.DrawArea = New System.Windows.Forms.PictureBox()
-        Me.Locus = New System.Windows.Forms.Button()
+        Me.Locus1 = New System.Windows.Forms.Button()
         Me.numLocus = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblMinValue = New System.Windows.Forms.Label()
@@ -36,24 +36,33 @@ Partial Class VectorLocusAndMinimumValue
         Me.CoefficientView = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Locus2 = New System.Windows.Forms.Button()
+        Me.LocusAll = New System.Windows.Forms.Button()
+        Me.Granularity = New System.Windows.Forms.NumericUpDown()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Clear = New System.Windows.Forms.Button()
         CType(Me.numVector, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DrawArea, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numLocus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Granularity, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'createVector
         '
-        Me.createVector.Location = New System.Drawing.Point(525, 690)
+        Me.createVector.Location = New System.Drawing.Point(525, 689)
         Me.createVector.Name = "createVector"
         Me.createVector.Size = New System.Drawing.Size(147, 31)
         Me.createVector.TabIndex = 0
-        Me.createVector.Text = "ベクトル生成"
+        Me.createVector.Text = "生成"
         Me.createVector.UseVisualStyleBackColor = True
         '
         'numVector
         '
         Me.numVector.Location = New System.Drawing.Point(430, 690)
-        Me.numVector.Maximum = New Decimal(New Integer() {10000000, 0, 0, 0})
+        Me.numVector.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.numVector.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.numVector.Name = "numVector"
         Me.numVector.Size = New System.Drawing.Size(89, 31)
@@ -63,11 +72,11 @@ Partial Class VectorLocusAndMinimumValue
         'lblNumberOfVector
         '
         Me.lblNumberOfVector.AutoSize = True
-        Me.lblNumberOfVector.Location = New System.Drawing.Point(296, 693)
+        Me.lblNumberOfVector.Location = New System.Drawing.Point(204, 693)
         Me.lblNumberOfVector.Name = "lblNumberOfVector"
-        Me.lblNumberOfVector.Size = New System.Drawing.Size(128, 24)
+        Me.lblNumberOfVector.Size = New System.Drawing.Size(156, 24)
         Me.lblNumberOfVector.TabIndex = 2
-        Me.lblNumberOfVector.Text = "ベクトルの数"
+        Me.lblNumberOfVector.Text = "合成元ベクトル"
         '
         'DrawArea
         '
@@ -79,21 +88,21 @@ Partial Class VectorLocusAndMinimumValue
         Me.DrawArea.TabIndex = 3
         Me.DrawArea.TabStop = False
         '
-        'Locus
+        'Locus1
         '
-        Me.Locus.Location = New System.Drawing.Point(525, 727)
-        Me.Locus.Name = "Locus"
-        Me.Locus.Size = New System.Drawing.Size(147, 31)
-        Me.Locus.TabIndex = 4
-        Me.Locus.Text = "軌跡の表示"
-        Me.Locus.UseVisualStyleBackColor = True
+        Me.Locus1.Location = New System.Drawing.Point(525, 727)
+        Me.Locus1.Name = "Locus1"
+        Me.Locus1.Size = New System.Drawing.Size(72, 31)
+        Me.Locus1.TabIndex = 4
+        Me.Locus1.Text = "1"
+        Me.Locus1.UseVisualStyleBackColor = True
         '
         'numLocus
         '
         Me.numLocus.Increment = New Decimal(New Integer() {100, 0, 0, 0})
         Me.numLocus.Location = New System.Drawing.Point(430, 727)
         Me.numLocus.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
-        Me.numLocus.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.numLocus.Minimum = New Decimal(New Integer() {100, 0, 0, 0})
         Me.numLocus.Name = "numLocus"
         Me.numLocus.Size = New System.Drawing.Size(89, 31)
         Me.numLocus.TabIndex = 5
@@ -102,16 +111,16 @@ Partial Class VectorLocusAndMinimumValue
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(180, 730)
+        Me.Label1.Location = New System.Drawing.Point(68, 729)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(244, 24)
+        Me.Label1.Size = New System.Drawing.Size(292, 24)
         Me.Label1.TabIndex = 6
-        Me.Label1.Text = "合成ベクトルの軌跡の数"
+        Me.Label1.Text = "乱係数の合成ベクトルの軌跡"
         '
         'lblMinValue
         '
         Me.lblMinValue.AutoSize = True
-        Me.lblMinValue.Location = New System.Drawing.Point(432, 767)
+        Me.lblMinValue.Location = New System.Drawing.Point(432, 804)
         Me.lblMinValue.Name = "lblMinValue"
         Me.lblMinValue.Size = New System.Drawing.Size(87, 24)
         Me.lblMinValue.TabIndex = 7
@@ -120,7 +129,7 @@ Partial Class VectorLocusAndMinimumValue
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(139, 767)
+        Me.Label2.Location = New System.Drawing.Point(139, 804)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(285, 24)
         Me.Label2.TabIndex = 8
@@ -139,7 +148,7 @@ Partial Class VectorLocusAndMinimumValue
         '
         'Reset
         '
-        Me.Reset.Location = New System.Drawing.Point(525, 764)
+        Me.Reset.Location = New System.Drawing.Point(525, 801)
         Me.Reset.Name = "Reset"
         Me.Reset.Size = New System.Drawing.Size(147, 31)
         Me.Reset.TabIndex = 10
@@ -151,7 +160,7 @@ Partial Class VectorLocusAndMinimumValue
         Me.CoefficientView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2})
         Me.CoefficientView.Location = New System.Drawing.Point(678, 12)
         Me.CoefficientView.Name = "CoefficientView"
-        Me.CoefficientView.Size = New System.Drawing.Size(163, 783)
+        Me.CoefficientView.Size = New System.Drawing.Size(163, 820)
         Me.CoefficientView.TabIndex = 11
         Me.CoefficientView.UseCompatibleStateImageBehavior = False
         '
@@ -164,18 +173,99 @@ Partial Class VectorLocusAndMinimumValue
         Me.ColumnHeader2.Text = "値"
         Me.ColumnHeader2.Width = 99
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(68, 767)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(292, 24)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "全係数の合成ベクトルの軌跡"
+        '
+        'Locus2
+        '
+        Me.Locus2.Location = New System.Drawing.Point(600, 727)
+        Me.Locus2.Name = "Locus2"
+        Me.Locus2.Size = New System.Drawing.Size(72, 31)
+        Me.Locus2.TabIndex = 13
+        Me.Locus2.Text = "2"
+        Me.Locus2.UseVisualStyleBackColor = True
+        '
+        'LocusAll
+        '
+        Me.LocusAll.Location = New System.Drawing.Point(525, 764)
+        Me.LocusAll.Name = "LocusAll"
+        Me.LocusAll.Size = New System.Drawing.Size(72, 31)
+        Me.LocusAll.TabIndex = 14
+        Me.LocusAll.Text = "描画"
+        Me.LocusAll.UseVisualStyleBackColor = True
+        '
+        'Granularity
+        '
+        Me.Granularity.Location = New System.Drawing.Point(430, 765)
+        Me.Granularity.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.Granularity.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.Granularity.Name = "Granularity"
+        Me.Granularity.Size = New System.Drawing.Size(89, 31)
+        Me.Granularity.TabIndex = 15
+        Me.Granularity.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(390, 692)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(34, 24)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "数"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(390, 729)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(34, 24)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "数"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(366, 767)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(58, 24)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "粒度"
+        '
+        'Clear
+        '
+        Me.Clear.Location = New System.Drawing.Point(603, 764)
+        Me.Clear.Name = "Clear"
+        Me.Clear.Size = New System.Drawing.Size(69, 31)
+        Me.Clear.TabIndex = 19
+        Me.Clear.Text = "クリア"
+        Me.Clear.UseVisualStyleBackColor = True
+        '
         'VectorLocusAndMinimumValue
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(853, 807)
+        Me.ClientSize = New System.Drawing.Size(853, 842)
+        Me.Controls.Add(Me.Clear)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Granularity)
+        Me.Controls.Add(Me.LocusAll)
+        Me.Controls.Add(Me.Locus2)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.CoefficientView)
         Me.Controls.Add(Me.Reset)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblMinValue)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.numLocus)
-        Me.Controls.Add(Me.Locus)
+        Me.Controls.Add(Me.Locus1)
         Me.Controls.Add(Me.lblNumberOfVector)
         Me.Controls.Add(Me.numVector)
         Me.Controls.Add(Me.createVector)
@@ -190,6 +280,7 @@ Partial Class VectorLocusAndMinimumValue
         CType(Me.numVector, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DrawArea, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numLocus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Granularity, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -199,7 +290,7 @@ Partial Class VectorLocusAndMinimumValue
     Friend WithEvents numVector As NumericUpDown
     Friend WithEvents lblNumberOfVector As Label
     Friend WithEvents DrawArea As PictureBox
-    Friend WithEvents Locus As Button
+    Friend WithEvents Locus1 As Button
     Friend WithEvents numLocus As NumericUpDown
     Friend WithEvents Label1 As Label
     Friend WithEvents lblMinValue As Label
@@ -209,4 +300,12 @@ Partial Class VectorLocusAndMinimumValue
     Friend WithEvents CoefficientView As ListView
     Friend WithEvents ColumnHeader1 As ColumnHeader
     Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Locus2 As Button
+    Friend WithEvents LocusAll As Button
+    Friend WithEvents Granularity As NumericUpDown
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Clear As Button
 End Class
